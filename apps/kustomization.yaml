@@ -1,11 +1,9 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - nfs-provisioner
-  - minio
-  - cnpg-system
-  - shisha-guid
-  - cert-manager
-  - external-dns
+  - arc
+  - cert-manager-issuers
   - cloudflared
-  - external-secrets
+  - external-dns
+  - harbor
+  - vault-store
