@@ -22,7 +22,7 @@ spec:
             name: cloudflare-api-token
             key: api-token
     cloudflare:
-      proxied: false
+      proxied: true
     domainFilters:
       - api-api-api.com
     txtOwnerId: workload-1-k3s
