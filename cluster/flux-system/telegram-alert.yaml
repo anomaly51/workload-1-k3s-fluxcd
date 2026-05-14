@@ -9,10 +9,43 @@ spec:
   secretRef:
     name: telegram-token
 ---
+# Critical errors — immediate attention needed
 apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Alert
 metadata:
-  name: flux-global-alert
+  name: flux-alert-errors
+  namespace: flux-system
+spec:
+  providerRef:
+    name: telegram
+  eventSeverity: error
+  eventSources:
+    - kind: GitRepository
+      name: "*"
+      namespace: flux-system
+    - kind: Kustomization
+      name: "*"
+      namespace: flux-system
+    - kind: HelmRelease
+      name: "*"
+      namespace: "*"
+    - kind: HelmRepository
+      name: "*"
+      namespace: flux-system
+    - kind: HelmChart
+      name: "*"
+      namespace: flux-system
+  eventMetadata:
+    cluster: "🚀 Workload K3s"
+    environment: "🌍 Production"
+    summary: "🚨 WORKLOAD CLUSTER — error requires immediate attention"
+    team: "DevOps"
+---
+# Informational events — deployments, upgrades, reconciliation
+apiVersion: notification.toolkit.fluxcd.io/v1beta3
+kind: Alert
+metadata:
+  name: flux-alert-info
   namespace: flux-system
 spec:
   providerRef:
@@ -28,6 +61,12 @@ spec:
     - kind: HelmRelease
       name: "*"
       namespace: "*"
-    - kind: HelmRepository
-      name: "*"
-      namespace: "*"
+  eventMetadata:
+    cluster: "🚀 Workload K3s"
+    environment: "🌍 Production"
+    summary: "ℹ️ WORKLOAD CLUSTER — state update"
+    team: "DevOps"
+  exclusionList:
+    - ".*no new revision.*"
+    - ".*no changes.*"
+    - ".*already up to date.*"
