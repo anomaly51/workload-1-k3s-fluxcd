@@ -1,0 +1,22 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: shisha-backend
+  namespace: flux-system
+spec:
+  image: harbor.api-api-api.com/shisha/backend
+  interval: 1m
+  secretRef:
+    name: harbor-image-pull-secret
+---
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImagePolicy
+metadata:
+  name: shisha-backend
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: shisha-backend
+  policy:
+    semver:
+      range: ">=0.0.1"

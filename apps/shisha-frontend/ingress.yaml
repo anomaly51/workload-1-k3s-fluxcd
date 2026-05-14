@@ -5,16 +5,16 @@ metadata:
   namespace: shisha-frontend
   annotations:
     cert-manager.io/cluster-issuer: letsencrypt-production
-    external-dns.alpha.kubernetes.io/hostname: shishaguid.api-api-api.com
-    external-dns.alpha.kubernetes.io/ttl: "120"
+    external-dns.alpha.kubernetes.io/hostname: shisha-guid.api-api-api.com
+    external-dns.alpha.kubernetes.io/target: a6aaa50f-2590-4179-84f2-d0f18bce0587.cfargotunnel.com
 spec:
   ingressClassName: traefik
   tls:
     - hosts:
-        - shishaguid.api-api-api.com
+        - shisha-guid.api-api-api.com
       secretName: shisha-frontend-tls
   rules:
-    - host: shishaguid.api-api-api.com
+    - host: shisha-guid.api-api-api.com
       http:
         paths:
           - path: /

@@ -7,3 +7,4 @@ resources:
   - external-dns
   - vault-store
   - shisha-frontend
+  - shisha-guid
