@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: shisha-frontend
+  namespace: shisha-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: shisha-frontend
+  template:
+    metadata:
+      labels:
+        app: shisha-frontend
+    spec:
+      imagePullSecrets:
+        - name: harbor-pull-secret
+      containers:
+        - name: shisha-frontend
+          image: harbor.api-api-api.com/shisha/frontend:latest # {"$imagepolicy": "flux-system:shisha-frontend"}
+          ports:
+            - containerPort: 80

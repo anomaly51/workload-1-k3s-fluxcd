@@ -1,0 +1,10 @@
+apiVersion: image.toolkit.fluxcd.io/v1beta2
+kind: ImageRepository
+metadata:
+  name: shisha-frontend
+  namespace: flux-system
+spec:
+  image: harbor.api-api-api.com/shisha/frontend
+  interval: 1m
+  secretRef:
+    name: harbor-image-pull-secret
