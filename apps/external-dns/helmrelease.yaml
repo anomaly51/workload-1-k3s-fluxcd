@@ -25,7 +25,6 @@ spec:
       proxied: false
     domainFilters:
       - api-api-api.com
-      - api-api.com
     txtOwnerId: utility-k3s
     sources:
       - ingress
