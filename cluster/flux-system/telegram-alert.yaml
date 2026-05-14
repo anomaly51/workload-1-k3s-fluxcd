@@ -39,7 +39,6 @@ spec:
     cluster: "🚀 Workload K3s"
     environment: "🌍 Production"
     summary: "🚨 WORKLOAD CLUSTER — error requires immediate attention"
-    team: "DevOps"
 ---
 # Informational events — deployments, upgrades, reconciliation
 apiVersion: notification.toolkit.fluxcd.io/v1beta3
@@ -65,7 +64,6 @@ spec:
     cluster: "🚀 Workload K3s"
     environment: "🌍 Production"
     summary: "ℹ️ WORKLOAD CLUSTER — state update"
-    team: "DevOps"
   exclusionList:
     - ".*no new revision.*"
     - ".*no changes.*"
