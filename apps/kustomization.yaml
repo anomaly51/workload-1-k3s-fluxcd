@@ -5,5 +5,4 @@ resources:
   - cert-manager-issuers
   - cloudflared
   - external-dns
-  - harbor
   - vault-store
