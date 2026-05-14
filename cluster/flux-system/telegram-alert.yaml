@@ -12,16 +12,22 @@ spec:
 apiVersion: notification.toolkit.fluxcd.io/v1beta3
 kind: Alert
 metadata:
-  name: shisha-deploy-alert
+  name: flux-global-alert
   namespace: flux-system
 spec:
   providerRef:
     name: telegram
   eventSeverity: info
   eventSources:
+    - kind: GitRepository
+      name: "*"
+      namespace: flux-system
+    - kind: Kustomization
+      name: "*"
+      namespace: flux-system
     - kind: HelmRelease
-      name: shisha-backend
-      namespace: shisha-guid
-    - kind: ImageUpdateAutomation
-      name: shisha-backend
-      namespace: shisha-guid
+      name: "*"
+      namespace: "*"
+    - kind: HelmRepository
+      name: "*"
+      namespace: "*"
