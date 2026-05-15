@@ -6,5 +6,6 @@ resources:
   - cloudflared
   - external-dns
   - vault-store
+  - online-shop
   - shisha-frontend
   - shisha-guid
