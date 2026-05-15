@@ -17,6 +17,6 @@ spec:
         - name: harbor-pull-secret
       containers:
         - name: shisha-frontend
-          image: harbor.api-api-api.com/shisha/frontend:main-6-7a3b4a37a37cb666ae4c73a449df12d8dfd8680e # {"$imagepolicy": "flux-system:shisha-frontend"}
+          image: harbor.api-api-api.com/shisha/frontend:main-7-c41f0f67eb64b2e68be1f89f6511349d686b401c # {"$imagepolicy": "flux-system:shisha-frontend"}
           ports:
             - containerPort: 80
