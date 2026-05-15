@@ -93,6 +93,8 @@ spec:
               value: shisha-guid
             - name: MINIO_SECURE
               value: "false"
+            - name: API_PUBLIC_URL
+              value: https://shisha-guid-api.api-api-api.com
 ---
 apiVersion: v1
 kind: Service
