@@ -28,10 +28,6 @@ spec:
       remoteRef:
         key: "workload-1/shisha-guid-backend"
         property: "google_client_secret"
-    - secretKey: ADMIN_EMAILS
-      remoteRef:
-        key: "workload-1/shisha-guid-backend"
-        property: "admin_emails"
 ---
 apiVersion: external-secrets.io/v1
 kind: ExternalSecret
