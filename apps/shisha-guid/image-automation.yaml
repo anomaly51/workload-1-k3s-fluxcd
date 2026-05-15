@@ -42,7 +42,7 @@ spec:
       author:
         name: fluxbot
         email: flux@anomaly51
-      messageTemplate: 'chore: update shisha-backend image to {{range .Changed.Objects}}{{.NewValue}}{{end}}'
+      messageTemplate: "chore: update shisha-backend image"
     push:
       branch: main
   update:
