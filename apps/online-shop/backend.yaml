@@ -29,7 +29,7 @@ spec:
         - name: harbor-pull-secret
       initContainers:
         - name: migrate
-          image: harbor.api-api-api.com/online-shop/backend:main-3-e722aac0553857f28e65494018138b7ec95c5161 # {"$imagepolicy": "flux-system:online-shop-backend"}
+          image: harbor.api-api-api.com/online-shop/backend:main-4-2b2e8dbdd1518b2e5347acdd1a054a786d5e1187 # {"$imagepolicy": "flux-system:online-shop-backend"}
           command:
             - sh
             - -c
@@ -70,7 +70,7 @@ spec:
               value: production
       containers:
         - name: backend
-          image: harbor.api-api-api.com/online-shop/backend:main-3-e722aac0553857f28e65494018138b7ec95c5161 # {"$imagepolicy": "flux-system:online-shop-backend"}
+          image: harbor.api-api-api.com/online-shop/backend:main-4-2b2e8dbdd1518b2e5347acdd1a054a786d5e1187 # {"$imagepolicy": "flux-system:online-shop-backend"}
           ports:
             - containerPort: 8000
           envFrom:
