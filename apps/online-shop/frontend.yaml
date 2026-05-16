@@ -17,7 +17,7 @@ spec:
         - name: harbor-pull-secret
       containers:
         - name: frontend
-          image: harbor.api-api-api.com/online-shop/frontend:main-3-e722aac0553857f28e65494018138b7ec95c5161 # {"$imagepolicy": "flux-system:online-shop-frontend"}
+          image: harbor.api-api-api.com/online-shop/frontend:main-4-2b2e8dbdd1518b2e5347acdd1a054a786d5e1187 # {"$imagepolicy": "flux-system:online-shop-frontend"}
           ports:
             - containerPort: 80
 ---
