@@ -4,6 +4,6 @@ resources:
   - namespace.yaml
   - secrets.yaml
   - postgres.yaml
+  - minio.yaml
   - backend.yaml
-  - frontend.yaml
   - image-automation.yaml

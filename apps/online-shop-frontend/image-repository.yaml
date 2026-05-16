@@ -1,0 +1,10 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageRepository
+metadata:
+  name: online-shop-frontend
+  namespace: flux-system
+spec:
+  image: harbor.api-api-api.com/online-shop/frontend
+  interval: 1m
+  secretRef:
+    name: harbor-image-pull-secret

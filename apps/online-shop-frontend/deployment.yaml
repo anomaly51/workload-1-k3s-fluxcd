@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: online-shop-frontend
+  namespace: online-shop-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: online-shop-frontend
+  template:
+    metadata:
+      labels:
+        app: online-shop-frontend
+    spec:
+      imagePullSecrets:
+        - name: harbor-pull-secret
+      containers:
+        - name: online-shop-frontend
+          image: harbor.api-api-api.com/online-shop/frontend:main-3-e722aac0553857f28e65494018138b7ec95c5161 # {"$imagepolicy": "flux-system:online-shop-frontend"}
+          ports:
+            - containerPort: 80

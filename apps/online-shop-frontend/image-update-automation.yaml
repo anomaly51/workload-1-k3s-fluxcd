@@ -1,0 +1,24 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImageUpdateAutomation
+metadata:
+  name: online-shop-frontend
+  namespace: flux-system
+spec:
+  interval: 1m
+  sourceRef:
+    kind: GitRepository
+    name: flux-system
+  git:
+    checkout:
+      ref:
+        branch: main
+    commit:
+      author:
+        name: fluxbot
+        email: flux@anomaly51
+      messageTemplate: "chore: update online-shop-frontend image"
+    push:
+      branch: main
+  update:
+    path: ./apps/online-shop-frontend
+    strategy: Setters

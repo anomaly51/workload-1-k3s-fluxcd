@@ -1,0 +1,14 @@
+apiVersion: image.toolkit.fluxcd.io/v1
+kind: ImagePolicy
+metadata:
+  name: online-shop-frontend
+  namespace: flux-system
+spec:
+  imageRepositoryRef:
+    name: online-shop-frontend
+  filterTags:
+    pattern: '^main-(?P<build>[0-9]+)-.*$'
+    extract: '$build'
+  policy:
+    numerical:
+      order: asc
