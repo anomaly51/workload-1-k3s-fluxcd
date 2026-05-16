@@ -76,7 +76,7 @@ spec:
         - name: harbor-pull-secret
       containers:
         - name: backend
-          image: harbor.api-api-api.com/shisha/backend:main-12-5210be3c7cab032df7eb9f80015de272faa2c222 # {"$imagepolicy": "flux-system:shisha-backend"}
+          image: harbor.api-api-api.com/shisha/backend:main-13-a1b5512b4f3e12752f83c363515da2c00fc1437e # {"$imagepolicy": "flux-system:shisha-backend"}
           ports:
             - containerPort: 8000
           envFrom:
