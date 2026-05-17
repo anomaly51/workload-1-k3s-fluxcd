@@ -19,7 +19,7 @@ spec:
         - name: harbor-pull-secret
       containers:
         - name: bot
-          image: harbor.api-api-api.com/downloader-sloniara-bot/bot:main-1-bootstrap # {"$imagepolicy": "flux-system:downloader-sloniara-bot"}
+          image: harbor.api-api-api.com/downloader-sloniara-bot/bot:main-33-fa8720b8a7b788ad5d3571b4740b6363dd6bb09b # {"$imagepolicy": "flux-system:downloader-sloniara-bot"}
           imagePullPolicy: IfNotPresent
           envFrom:
             - secretRef:
