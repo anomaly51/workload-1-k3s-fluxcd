@@ -1,0 +1,67 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bot
+  namespace: downloader-sloniara-bot
+spec:
+  replicas: 1
+  strategy:
+    type: Recreate
+  selector:
+    matchLabels:
+      app: downloader-sloniara-bot
+  template:
+    metadata:
+      labels:
+        app: downloader-sloniara-bot
+    spec:
+      imagePullSecrets:
+        - name: harbor-pull-secret
+      containers:
+        - name: bot
+          image: harbor.api-api-api.com/downloader-sloniara-bot/bot:main-1-bootstrap # {"$imagepolicy": "flux-system:downloader-sloniara-bot"}
+          imagePullPolicy: IfNotPresent
+          envFrom:
+            - secretRef:
+                name: bot-env
+          env:
+            - name: APP_ENV
+              value: prod
+            - name: PYTHONUNBUFFERED
+              value: "1"
+            - name: PROXY_DOWNLOADER_TIMEOUT
+              value: "120"
+            - name: PROXY_AUTO_JOIN_SPONSORS
+              value: "true"
+            - name: PROXY_DEBUG_LOG
+              value: /app/logs/proxy_bot_downloader.log
+            - name: SEND_CONTENT_TIMEOUT
+              value: "180"
+          volumeMounts:
+            - name: bot-session
+              mountPath: /app/prod_user.session
+              subPath: prod_user.session
+              readOnly: true
+            - name: logs
+              mountPath: /app/logs
+            - name: downloads
+              mountPath: /app/downloads
+            - name: content
+              mountPath: /app/content
+          resources:
+            requests:
+              cpu: 100m
+              memory: 256Mi
+            limits:
+              cpu: "1"
+              memory: 1Gi
+      volumes:
+        - name: bot-session
+          secret:
+            secretName: bot-session
+        - name: logs
+          emptyDir: {}
+        - name: downloads
+          emptyDir: {}
+        - name: content
+          emptyDir: {}
