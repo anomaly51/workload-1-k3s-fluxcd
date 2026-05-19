@@ -10,6 +10,8 @@ spec:
       app: cloudflared
   template:
     metadata:
+      annotations:
+        config.kubernetes.io/reload: hermes-agent-host-route-v1
       labels:
         app: cloudflared
     spec:
